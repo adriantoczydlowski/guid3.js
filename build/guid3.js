@@ -832,6 +832,16 @@ module.exports = function module(cb){
   */
   this.setValue = function(v){
     // update the target value
+    function CustomEvent ( event, params ) {
+        params = params || { bubbles: false, cancelable: false, detail: undefined };
+        var evt = document.createEvent( 'CustomEvent' );
+        evt.initCustomEvent( event, params.bubbles, params.cancelable, params.detail );
+        return evt;
+       }
+
+      CustomEvent.prototype = window.Event.prototype;
+
+      window.CustomEvent = CustomEvent;
     console.log('g_root', this.g_root);
     console.log('this.g_root.node()', this.g_root.node());
     console.log('custom event', new CustomEvent('changed', { detail:v } ));
