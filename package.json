@@ -1,5 +1,5 @@
 {
-  "name": "GUID3.js",
+  "name": "GUID3v2.js",
   "version": "0.1.0",
   "description": "a gui toolkit for svg using d3",
   "main": "index.js",
@@ -12,14 +12,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/billautomata/GUID3.js.git"
+    "url": "https://github.com/adriantoczydlowski/GUID3.js.git"
   },
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/billautomata/GUID3.js/issues"
+    "url": "https://github.com/adriantoczydlowski/GUID3.js/issues"
   },
-  "homepage": "https://github.com/billautomata/GUID3.js",
+  "homepage": "https://github.com/adriantoczydlowski/GUID3.js",
   "dependencies": {
     "jstest": "~1.0.5",
     "d3": "~3.4.11",
