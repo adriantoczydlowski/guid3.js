@@ -10,12 +10,18 @@ window.GUId3.Button = require('./GUId3.button.js')
 window.GUId3.Slider = require('./GUId3.slider.js')
 
 },{"./GUId3.button.js":2,"./GUId3.slider.js":3}],2:[function(require,module,exports){
-function CustomEvent ( event, params ) {
-  params = params || { bubbles: false, cancelable: false, detail: undefined };
-  var evt = document.createEvent( 'CustomEvent' );
-  evt.initCustomEvent( event, params.bubbles, params.cancelable, params.detail );
-  return evt;
- }
+if ( typeof window.CustomEvent !== "function" ) {
+  function CustomEvent ( event, params ) {
+        params = params || { bubbles: false, cancelable: false, detail: undefined };
+        var evt = document.createEvent( 'CustomEvent' );
+        evt.initCustomEvent( event, params.bubbles, params.cancelable, params.detail );
+        return evt;
+       }
+
+  CustomEvent.prototype = window.Event.prototype;
+
+  window.CustomEvent = CustomEvent;
+}
 /**
  * A button interface element.
  *
@@ -838,14 +844,6 @@ module.exports = function module(cb){
   */
   this.setValue = function(v){
     // update the target value
-    if ( typeof window.CustomEvent !== "function" ) {
-
-
-      CustomEvent.prototype = window.Event.prototype;
-
-      window.CustomEvent = CustomEvent;
-    }
-
     this.object_reference[self.object_key] = v
     this.g_root.node().dispatchEvent(new CustomEvent('changed', { detail:v } ))
   }
