@@ -1553,7 +1553,6 @@ module.exports = function module(cb){
 
     window.onresize = () => {
       var newWidth = svg[0][0].offsetParent.offsetWidth - 55;
-      var axisSvg = svg[0][0].nextSibling;
 
           // connect to dummy value if not connected to a target
     if(!this.object_reference){
@@ -1561,18 +1560,25 @@ module.exports = function module(cb){
         }
 
       var bgRect = this.g_root.select(".guid3-slider");
+
       var proportion = newWidth/this.g_root.attr('width');
 
-      rect_slider_bg.attr('width', newWidth);
-      svg.select('.parent').attr('width', newWidth);
+      var selectRect = this.g_root.select(".guid3-slider-indicator");
 
-      rect_horizontal_indicator.attr('width', rect_horizontal_indicator.attr('width') * proportion);
+      bgRect.attr('width', newWidth);
+      svg.select('.parent').attr('width', newWidth);
+      
+      selectRect.attr('width', selectRect.attr('width') * proportion);
+
 
     }
 
   } // end of this.create
 
 
+this.resize = function(newWidth, svgElem){
+
+}
 
 
 }
