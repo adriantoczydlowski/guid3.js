@@ -1551,8 +1551,7 @@ module.exports = function module(cb){
         drag_function()
     })
 
-    window.onresize = () => {
-      console.log(this._steps);
+    window.addEventListener('resize', () => {
 
       var steps = this._steps;
       var newWidth = svg[0][0].offsetParent.offsetWidth - 55;
@@ -1562,8 +1561,6 @@ module.exports = function module(cb){
       }
       self._width = newWidth;
 
-      this.steps(steps);
-
           // connect to dummy value if not connected to a target
 
       rect_slider_bg.attr('width', newWidth);
@@ -1571,9 +1568,9 @@ module.exports = function module(cb){
       svg.select('.parent defs clippath rect').attr('width', newWidth);
 
       rect_horizontal_indicator.attr('width', rect_horizontal_indicator.attr('width') * proportion);
+      drag_function();
 
-
-    }
+    });
 
   } // end of this.create
 
