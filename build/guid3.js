@@ -1554,9 +1554,9 @@ module.exports = function module(cb){
     window.addEventListener('resize', () => {
 
       console.log(self._scale);
-      console.log(self.svg);
-      console.log(self.svg[0][0]);
-      console.log(self.svg[0][0].offsetParent);
+      console.log(svg);
+      console.log(svg[0][0]);
+      console.log(svg[0][0].offsetParent);
 
 
       var newWidth = svg[0][0].offsetParent.offsetWidth - 75;
