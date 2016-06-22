@@ -1556,7 +1556,8 @@ module.exports = function module(cb){
       var newWidth = self._width;
 
         if(svg[0][0].offsetParent){
-          newWidth = svg[0][0].offsetParent.offsetWidth - 85;
+          newWidth = svg[0][0].offsetParent.offsetWidth - 65;
+          console.log(newWidth);
         }
 
       var proportion = newWidth/this.g_root.attr('width');
