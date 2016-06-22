@@ -1553,8 +1553,10 @@ module.exports = function module(cb){
 
     window.addEventListener('resize', () => {
 
-      var steps = this._steps;
-      var newWidth = svg[0][0].offsetParent.offsetWidth - 55;
+      console.log(this._scale);
+
+
+      var newWidth = svg[0][0].offsetParent.offsetWidth - 75;
       var proportion = newWidth/this.g_root.attr('width');
       if(!this.object_reference){
         this.noconnect()
@@ -1569,11 +1571,11 @@ module.exports = function module(cb){
 
       rect_horizontal_indicator.attr('width', rect_horizontal_indicator.attr('width') * proportion);
 
-      var map_scale = d3.scale.linear().domain([0,self._width]).range(self._scale.domain())
+      map_scale = d3.scale.linear().domain([0,self._width]).range(self._scale.domain())
       if(self._type !== 'horizontal'){
         map_scale = d3.scale.linear().domain([self._height,0]).range(self._scale.domain())
       }
-      
+
       drag_function();
 
     });
