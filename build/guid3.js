@@ -1552,39 +1552,33 @@ module.exports = function module(cb){
     })
 
     window.onresize = () => {
-      console.log(svg);
-      console.log(svg[0]);
-      console.log(svg[0][0]);
-      console.log(svg[0][0]);
-      console.log(svg[0][0].offsetParent);
-      console.log(svg[0][0].offsetParent.offsetWidth);
+      var newWidth = svg[0][0].offsetParent.offsetWidth - 55;
+      var axisSvg = svg[0][0].nextSibling;
+
+          // connect to dummy value if not connected to a target
+    if(!this.object_reference){
+          this.noconnect()
+        }
+
+      var bgRect = this.g_root.select(".guid3-slider");
+      var proportion = newWidth/this.g_root.attr('width');
+      var endTick = axisSvg.select(".tick:last-of-type"); 
+
+      rect_slider_bg.attr('width', newWidth);
+      svg.select('.parent').attr('width', newWidth);
+
+      rect_horizontal_indicator.attr('width', rect_horizontal_indicator.attr('width') * proportion);
+
+      var newTickPos = newWidth - 30;
+
+      endTick.attr('transform', 'translate('+ newTickPos +',0)')
+
     }
 
   } // end of this.create
 
 
 this.resize = function(newWidth, svgElem){
-    // connect to dummy value if not connected to a target
-    if(!this.object_reference){
-      this.noconnect()
-    }
-
-  var bgRect = this.g_root.select(".guid3-slider");
-
-  var proportion = newWidth/this.g_root.attr('width');
-
-  var selectRect = this.g_root.select(".guid3-slider-indicator");
-  var endTick = svgElem.select(".tick:last-of-type"); 
-
-  bgRect.attr('width', newWidth);
-  this.g_root.attr('width', newWidth);
-
-
-  selectRect.attr('width', selectRect.attr('width') * proportion);
-
-  var newTickPos = newWidth - 30;
-
-  endTick.attr('transform', 'translate('+ newTickPos +',0)')
 
 }
 
