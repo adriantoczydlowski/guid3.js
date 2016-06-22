@@ -1554,6 +1554,27 @@ module.exports = function module(cb){
   } // end of this.create
 
 
+this.resize = function(newWidth){
+    // connect to dummy value if not connected to a target
+    if(!this.object_reference){
+      this.noconnect()
+    }
+
+        if(self._drag){
+          rect_horizontal_indicator
+            .attr('width', newWidth)
+        } else {
+          rect_horizontal_indicator.transition().duration(self._transitionSpeed)
+            .attr('width', newWidth);
+        }
+
+      g_root_text_value.attr('transform',
+        'translate('+(width-2) + ','+ (self._height * 0.5) + ')')
+
+console.log(newWidth);
+}
+
+
 }
 
 },{}]},{},[1]);
