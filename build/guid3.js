@@ -1553,7 +1553,7 @@ module.exports = function module(cb){
 
     window.onresize = () => {
       console.log(svg);
-      console.log(svg[0][0]);
+      console.log(this.g_root.select('svg'));
     }
 
   } // end of this.create
@@ -1574,6 +1574,8 @@ this.resize = function(newWidth, svgElem){
 
   bgRect.attr('width', newWidth);
   selectRect.attr('width', selectRect.attr('width') * proportion);
+
+  this.g_root.attr('width', newWidth);
 
   var newTickPos = newWidth - 30;
 
