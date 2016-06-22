@@ -1552,7 +1552,7 @@ module.exports = function module(cb){
     })
 
     window.onresize = () => {
-      console.log(svg);
+      console.log(svg.css('width'));
     }
 
   } // end of this.create
