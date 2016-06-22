@@ -1582,7 +1582,7 @@ this.resize = function(newWidth, svgElem){
   bgRect.attr('width', newWidth);
   selectRect.attr('width', newWidth * proportion);
 
-  var newTickPos = (newWidth - 20).parseInt();
+  var newTickPos = newWidth - 20;
 
   endTick.attr('transform', 'translate('+ newTickPos +',0)')
 
