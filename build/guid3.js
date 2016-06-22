@@ -1568,6 +1568,12 @@ module.exports = function module(cb){
       svg.select('.parent defs clippath rect').attr('width', newWidth);
 
       rect_horizontal_indicator.attr('width', rect_horizontal_indicator.attr('width') * proportion);
+
+      var map_scale = d3.scale.linear().domain([0,self._width]).range(self._scale.domain())
+      if(self._type !== 'horizontal'){
+        map_scale = d3.scale.linear().domain([self._height,0]).range(self._scale.domain())
+      }
+      
       drag_function();
 
     });
