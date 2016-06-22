@@ -1564,15 +1564,19 @@ this.resize = function(newWidth){
 //last tick - drugi label
 
   var bgRect = this.g_root.select(".guid3-slider"); 
-  var selectRect = this.g_root.select(".guid3-slider-indicator"); 
-  var endTick = this.g_root.select(".tick:last-of-type"); 
 
-  var proportion = newWidth/bgRect.attr('width');
+  console.log(this.g_root.attr('width'));
+
+  var proportion = newWidth/this.g_root.attr('width');
+
+  console.log(proportion);
+
+  var selectRect = this.g_root.select(".guid3-slider-indicator"); 
+  var endTick = this.g_root.select(".tick"); 
 
   bgRect.attr('width', newWidth);
   selectRect.attr('width', newWidth * proportion);
-
-console.log(proportion);
+  
 console.log(newWidth);
 console.log(bgRect);
 console.log(selectRect);
