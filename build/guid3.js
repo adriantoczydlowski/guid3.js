@@ -1555,6 +1555,10 @@ module.exports = function module(cb){
       console.log(this.g_root);
       var newWidth = svg[0][0].offsetParent.offsetWidth - 55;
       self._width = newWidth;
+      tick_size  = self._width / self._steps;
+      use_value = tick_size * Math.floor((use_value+(tick_size*0.5))/tick_size)
+
+      
           // connect to dummy value if not connected to a target
     if(!this.object_reference){
           this.noconnect()
