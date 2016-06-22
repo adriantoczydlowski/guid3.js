@@ -1554,10 +1554,11 @@ module.exports = function module(cb){
     window.addEventListener('resize', () => {
 
       var newWidth = self._width;
-      console.log(svg);
-      console.log(this.g_root);
-        if(svg[0][0].offsetParent){
-          newWidth = svg[0][0].offsetParent.offsetWidth - 99;
+      console.log(svg[0][0]);
+      console.log(svg[0][0].parentNode);
+      console.log(svg[0][0].parentNode.offsetWidth);
+        if(svg[0][0].parentNode){
+          newWidth = svg[0][0].parentNode.offsetWidth - 30;
         }
 
       var proportion = newWidth/this.g_root.attr('width');
