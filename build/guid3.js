@@ -1552,30 +1552,25 @@ module.exports = function module(cb){
     })
 
     window.onresize = () => {
-      console.log(this.g_root);
-      var newWidth = svg[0][0].offsetParent.offsetWidth - 55;
-      self._width = newWidth;
-      var tick_size  = self._width / self._steps;
-      var use_value = tick_size * Math.floor((use_value+(tick_size*0.5))/tick_size)
 
+      var newWidth = svg[0][0].offsetParent.offsetWidth - 55;
+      var proportion = newWidth/this.g_root.attr('width');
+      if(!this.object_reference){
+        this.noconnect()
+      }
+      self._width = newWidth;
 
           // connect to dummy value if not connected to a target
-    if(!this.object_reference){
-          this.noconnect()
-        }
 
-      var bgRect = this.g_root.select(".guid3-slider");
-
-      var proportion = newWidth/this.g_root.attr('width');
-
-      var selectRect = this.g_root.select(".guid3-slider-indicator");
-
-      bgRect.attr('width', newWidth);
+      rect_slider_bg.attr('width', newWidth);
       svg.select('.parent').attr('width', newWidth);
       svg.select('.parent defs clippath rect').attr('width', newWidth);
 
-      selectRect.attr('width', selectRect.attr('width') * proportion);
-
+      rect_horizontal_indicator.attr('width', rect_horizontal_indicator.attr('width') * proportion);
+        
+        var tick_size  = self._width / self._steps
+        var use_value = tick_size * Math.floor((use_value+(tick_size*0.5))/tick_size)
+        self.setValue(self._scale(map_scale(use_value)))
 
     }
 
