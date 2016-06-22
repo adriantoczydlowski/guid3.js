@@ -1553,9 +1553,10 @@ module.exports = function module(cb){
 
     window.onresize = () => {
       var newWidth = svg[0][0].offsetParent.offsetWidth - 55;
-      var axisSvg = svg.nextSibling;
+      var axisSvg = svg[0][0].nextSibling;
 
-      console.log(axisSvg);
+      console.log(svg);
+      console.log(svg[0][0]);
 
           // connect to dummy value if not connected to a target
     if(!this.object_reference){
