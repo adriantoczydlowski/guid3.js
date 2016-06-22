@@ -1552,7 +1552,7 @@ module.exports = function module(cb){
     })
 
     window.onresize = () => {
-      console.log(svg.parent());
+      console.log(svg.offsetParent);
     }
 
   } // end of this.create
