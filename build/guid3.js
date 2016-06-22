@@ -1551,6 +1551,10 @@ module.exports = function module(cb){
         drag_function()
     })
 
+    window.onresize = () => {
+      console.log('resize action in create');
+    }
+
   } // end of this.create
 
 
@@ -1572,11 +1576,11 @@ this.resize = function(newWidth){
   console.log(proportion);
 
   var selectRect = this.g_root.select(".guid3-slider-indicator"); 
-  var endTick = this.g_root.select(".tick"); 
+  var endTick = this.select('.osc-slider__axis').select(".tick"); 
 
   bgRect.attr('width', newWidth);
   selectRect.attr('width', newWidth * proportion);
-  
+
 console.log(newWidth);
 console.log(bgRect);
 console.log(selectRect);
