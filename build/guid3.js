@@ -1573,23 +1573,16 @@ this.resize = function(newWidth, svgElem){
 
   var proportion = newWidth/this.g_root.attr('width');
 
-  console.log(proportion);
-  console.log(svgElem);
-
-  var selectRect = this.g_root.select(".guid3-slider-indicator"); 
+  var selectRect = this.g_root.select(".guid3-slider-indicator");
   var endTick = svgElem.select(".tick:last-of-type"); 
 
   bgRect.attr('width', newWidth);
-  selectRect.attr('width', newWidth * proportion);
+  selectRect.attr('width', selectRect.attr('width') * proportion);
 
-  var newTickPos = newWidth - 20;
+  var newTickPos = newWidth - 30;
 
   endTick.attr('transform', 'translate('+ newTickPos +',0)')
 
-console.log(newWidth);
-console.log(bgRect);
-console.log(selectRect);
-console.log(endTick);
 }
 
 
