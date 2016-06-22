@@ -1332,10 +1332,12 @@ module.exports = function module(cb){
 
 
       // convert to a slider size
-      console.log(self._scale.invertExtent(d3.event.detail));
-      console.log(d3.event.detail);
+      // console.log(self._scale.invertExtent(d3.event.detail))
 
       var true_value = d3.event.detail
+
+      console.log(true_value);
+      console.log(self._scale.invert(true_value));
 
       // we need to convert the true value of the slider
       // to the made up value of it's domain
