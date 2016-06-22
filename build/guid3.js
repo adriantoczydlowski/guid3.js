@@ -1552,6 +1552,7 @@ module.exports = function module(cb){
     })
 
     window.onresize = () => {
+      console.log(this.g_root);
       var newWidth = svg[0][0].offsetParent.offsetWidth - 55;
 
           // connect to dummy value if not connected to a target
@@ -1566,6 +1567,7 @@ module.exports = function module(cb){
       var selectRect = this.g_root.select(".guid3-slider-indicator");
 
       bgRect.attr('width', newWidth);
+      svg.select('.parent').attr('width', newWidth);
       svg.select('.parent defs clippath rect').attr('width', newWidth);
 
       selectRect.attr('width', selectRect.attr('width') * proportion);
