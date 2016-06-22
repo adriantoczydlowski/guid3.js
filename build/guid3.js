@@ -1552,7 +1552,9 @@ module.exports = function module(cb){
     })
 
     window.onresize = () => {
+      console.log(this._steps);
 
+      var steps = this._steps;
       var newWidth = svg[0][0].offsetParent.offsetWidth - 55;
       var proportion = newWidth/this.g_root.attr('width');
       if(!this.object_reference){
@@ -1560,7 +1562,7 @@ module.exports = function module(cb){
       }
       self._width = newWidth;
 
-      this.steps(this._steps);
+      this.steps(steps);
 
           // connect to dummy value if not connected to a target
 
