@@ -1552,14 +1552,6 @@ module.exports = function module(cb){
     })
 
     window.onresize = () => {
-      console.log('resize action in create');
-    }
-
-  } // end of this.create
-
-
-this.resize = function(newWidth){
-    // connect to dummy value if not connected to a target
     if(!this.object_reference){
       this.noconnect()
     }
@@ -1576,7 +1568,7 @@ this.resize = function(newWidth){
   console.log(proportion);
 
   var selectRect = this.g_root.select(".guid3-slider-indicator"); 
-  var endTick = this.select('.osc-slider__axis').select(".tick"); 
+  var endTick = svg.select(".tick"); 
 
   bgRect.attr('width', newWidth);
   selectRect.attr('width', newWidth * proportion);
@@ -1585,6 +1577,13 @@ console.log(newWidth);
 console.log(bgRect);
 console.log(selectRect);
 console.log(endTick);
+    }
+
+  } // end of this.create
+
+
+this.resize = function(newWidth){
+
 }
 
 
