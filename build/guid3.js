@@ -1552,6 +1552,14 @@ module.exports = function module(cb){
     })
 
     window.onresize = () => {
+      console.log('resize action in create');
+    }
+
+  } // end of this.create
+
+
+this.resize = function(newWidth, svgElem){
+    // connect to dummy value if not connected to a target
     if(!this.object_reference){
       this.noconnect()
     }
@@ -1566,9 +1574,10 @@ module.exports = function module(cb){
   var proportion = newWidth/this.g_root.attr('width');
 
   console.log(proportion);
+  console.log(svgElem);
 
   var selectRect = this.g_root.select(".guid3-slider-indicator"); 
-  var endTick = svg.select(".tick"); 
+  var endTick = svgElem.select(".tick"); 
 
   bgRect.attr('width', newWidth);
   selectRect.attr('width', newWidth * proportion);
@@ -1577,13 +1586,6 @@ console.log(newWidth);
 console.log(bgRect);
 console.log(selectRect);
 console.log(endTick);
-    }
-
-  } // end of this.create
-
-
-this.resize = function(newWidth){
-
 }
 
 
