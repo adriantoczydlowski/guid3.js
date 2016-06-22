@@ -1553,13 +1553,14 @@ module.exports = function module(cb){
 
     window.addEventListener('resize', () => {
 
-      console.log(self._scale);
-      console.log(svg);
-      console.log(svg[0][0]);
-      console.log(svg[0][0].offsetParent);
+      console.log(self._scale());
 
+      var newWidth;
 
-      var newWidth = svg[0][0].offsetParent.offsetWidth - 75;
+        if(svg[0][0].offsetParent){
+          newWidth = svg[0][0].offsetParent.offsetWidth - 85;
+        }
+
       var proportion = newWidth/this.g_root.attr('width');
       if(!this.object_reference){
         this.noconnect()
