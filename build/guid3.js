@@ -1551,7 +1551,7 @@ module.exports = function module(cb){
         drag_function()
     })
 
-    window.addEventListener('resize', () => {
+    window.addEventListener('resize', function(){
 
       var newWidth = self._width;
 
