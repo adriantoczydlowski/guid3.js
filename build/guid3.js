@@ -1551,8 +1551,6 @@ module.exports = function module(cb){
         drag_function()
     })
 
-    var initRootWidth = this.g_root.attr('width');
-
     window.addEventListener('resize', function(){
 
       var newWidth = self._width;
@@ -1560,7 +1558,7 @@ module.exports = function module(cb){
         if(svg[0][0].parentNode && svg[0][0].parentNode.getBoundingClientRect().width > 0){
           newWidth = svg[0][0].parentNode.getBoundingClientRect().width - 30;
 
-          var proportion = newWidth/initRootWidth;
+          var proportion = newWidth/self._width;
 
           self._width = newWidth;
 
