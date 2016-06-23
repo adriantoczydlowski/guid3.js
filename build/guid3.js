@@ -1555,7 +1555,7 @@ module.exports = function module(cb){
 
       var newWidth = self._width;
 
-        if(svg[0][0].parentNode){
+        if(svg[0][0].parentNode && svg[0][0].parentNode.getBoundingClientRect().width > 0){
           newWidth = svg[0][0].parentNode.getBoundingClientRect().width - 30;
         }
 
