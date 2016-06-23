@@ -1561,9 +1561,7 @@ module.exports = function module(cb){
           newWidth = svg[0][0].parentNode.getBoundingClientRect().width - 30;
 
           var proportion = newWidth/initRootWidth;
-          if(!this.object_reference){
-            this.noconnect()
-          }
+
           self._width = newWidth;
 
               // connect to dummy value if not connected to a target
